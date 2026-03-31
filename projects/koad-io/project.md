@@ -16,7 +16,9 @@ tags:
   - reference-implementation
   - foundational
 description: "Define koad:io as a portable protocol. The current bash+Meteor implementation is the reference — anyone should be able to port it to any language or stack."
-owner: vulcan
+owner: vesta
+assigned_to: vesta
+note: "Migrating to Vesta on her gestation — Vesta owns koad:io protocol, Vulcan builds with it"
 stability: unstable
 version: "0.x"
 tasks:
