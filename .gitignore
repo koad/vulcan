@@ -1,0 +1,26 @@
+# Private keys — never commit
+id/ed25519
+id/ecdsa
+id/rsa
+id/dsa
+
+# SSL private keys
+ssl/master-curve.pem
+ssl/device-curve.pem
+ssl/relay-curve.pem
+ssl/session.pem
+
+# Environment — contains paths, may contain secrets
+# .env is committed but sanitized (no secrets)
+
+# Runtime
+proc/
+var/
+home/vulcan/.cache/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
