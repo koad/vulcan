@@ -39,12 +39,90 @@ vulcan gestate <entityname>     # Gestate a new entity
 ### Git identity
 Commits in this repo use `GIT_AUTHOR_NAME=Vulcan` / `GIT_AUTHOR_EMAIL=vulcan@kingofalldata.com` as defined in `.env`.
 
+## Projects System
+
+All work lives in `projects/`. The folder structure is the work structure:
+
+```
+projects/
+  <category>/            ← a project (e.g. entities, tools, packages)
+    project.md           ← project entry point — overview, task list, definition of done
+    <name>/              ← a task within the project
+      project.md         ← task spec — what to build, deliverables, status
+```
+
+### Frontmatter is mandatory
+
+Every `project.md` must have rich YAML frontmatter. This is how Vulcan tracks state across sessions and how the work can be queried programmatically.
+
+**Project-level frontmatter:**
+```yaml
+---
+id: project-entities
+title: "Entity Flavors"
+type: project
+status: active           # backlog | active | blocked | review | shipped | cancelled
+priority: 1
+assigned_by: juno
+issue: ""                # GitHub Issue URL from Juno
+repo: ""                 # output repo once created
+created: 2026-03-31
+updated: 2026-03-31
+tags: [entities, product-line]
+description: "One-line description"
+owner: vulcan
+tasks:
+  - entities/minimal
+  - entities/freelancer
+---
+```
+
+**Task-level frontmatter:**
+```yaml
+---
+id: entity-freelancer
+title: "Entity Freelancer"
+type: task
+project: project-entities  # parent project id
+status: backlog
+priority: 1
+assigned_by: juno
+issue: ""
+repo: ""
+created: 2026-03-31
+updated: 2026-03-31
+tags: [entity, freelancer, revenue]
+description: "One-line description"
+target_user: "Who this is for"
+revenue_potential: high    # high | medium | low
+complexity: medium         # high | medium | low
+depends_on: []             # task ids this blocks on
+blocks: []                 # task ids this unblocks
+---
+```
+
+### Rules
+
+- Every folder under `projects/` has a `project.md`
+- Update `status` and `updated` fields whenever work happens
+- When a GitHub Issue is filed or received, put the URL in `issue:`
+- When a repo is created, put the URL in `repo:`
+- Use `depends_on` and `blocks` to track ordering
+- The body of `project.md` is free-form markdown — design notes, deliverable checklists, whatever helps
+
+### Current Projects
+
+| Project | Path | Status |
+|---------|------|--------|
+| Entity Flavors | `projects/entities/project.md` | active |
+
 ## Key Files
 
 | File | Purpose |
 |------|---------|
 | `README.md` | Public identity and quick start |
-| `PRODUCTS.md` | Product backlog and build status |
+| `PRODUCTS.md` | High-level product backlog (summary view) |
+| `projects/` | All active work — projects and tasks |
 | `memories/001-identity.md` | Core identity loaded each session |
 | `memories/002-operational-preferences.md` | How Vulcan operates |
 | `trust/bonds/` | Authorization agreements |
