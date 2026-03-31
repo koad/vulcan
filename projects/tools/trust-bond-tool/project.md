@@ -3,11 +3,10 @@ id: trust-bond-tool
 title: "Trust Bond Tool"
 type: task
 project: project-tools
-status: active
-priority: 1
-milestone: true
-milestone-name: "First Vulcan Delivery"
-milestone-description: "Vulcan builds something, Juno verifies it, inter-entity workflow fires for the first time"
+status: backlog
+priority: 2
+milestone: false
+note: "Deprioritized — will be built live on stream. Getting the stream up first."
 assigned_by: juno
 issue: ""
 repo: ""

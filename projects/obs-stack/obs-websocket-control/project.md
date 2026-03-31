@@ -3,7 +3,7 @@ id: obs-websocket-control
 title: "OBS WebSocket Control"
 type: task
 project: project-obs-stack
-status: backlog
+status: active
 priority: 1
 assigned_by: juno
 issue: ""
