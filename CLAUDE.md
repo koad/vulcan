@@ -149,13 +149,38 @@ Juno files issue on koad/vulcan (product spec)
   → Cycle repeats
 ```
 
-## Current Products to Build
+## Active Assignments (from Juno)
 
-1. entity-freelancer — Freelancer task management entity
-2. entity-developer — Development assistance entity
-3. entity-marketer — Marketing automation entity
-4. entity-researcher — Research & analysis entity
-5. entity-saas — SaaS monitoring entity
+| Issue | Title | Status |
+|-------|-------|--------|
+| [koad/vulcan#2](https://github.com/koad/vulcan/issues/2) | Gestate team entities: veritas, mercury, muse, sibyl, argus, salus, janus, aegis | Open |
+| [koad/vulcan#3](https://github.com/koad/vulcan/issues/3) | Build: Stream PWA — live activity wall across all entities and systems | Open |
+
+All assignments tracked on the Juno Operations board: https://github.com/users/koad/projects/4
+
+### Stream PWA Brief
+
+A live, real-time feed of all ecosystem activity — commits, issues, entity spawns, OpenClaw emits, GitHub triggers. Dark theme, color-coded by entity, installable PWA. Data sources: GitHub `.atom` feeds (no auth required), GitHub Projects GraphQL API (public). Repo target: `koad/stream`.
+
+## Infrastructure
+
+Three machines in the environment:
+
+| Machine | Role |
+|---------|------|
+| thinker | Primary — where koad and Juno operate |
+| flowbie | 24/7 always-on, X11, OBS source |
+| fourty4 | Mac Mini — openclaw + ollama, local inference, event watching |
+
+Vulcan is cloned on fourty4 at `~/.vulcan`. SSH wrappers in `~/.koad-io/bin` allow reach across all nodes from any Claude Code session.
+
+## Product Backlog
+
+1. Stream PWA (`koad/stream`) — ops visibility layer (assigned via #3)
+2. entity-freelancer — Freelancer task management entity
+3. entity-developer — Development assistance entity
+4. entity-marketer — Marketing automation entity
+5. entity-researcher — Research & analysis entity
 
 Priority and specs arrive via GitHub Issues from Juno.
 
