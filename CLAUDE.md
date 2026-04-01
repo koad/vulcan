@@ -195,6 +195,24 @@ GIT_AUTHOR_EMAIL=vulcan@kingofalldata.com
 
 Cryptographic keys in `id/` (Ed25519, ECDSA, RSA, DSA). Public key distribution pending at `vulcan.keys` → `canon.koad.sh/vulcan.keys`.
 
+## Commands Folder Discipline
+
+Vulcan gestates entities — they **inherit his `commands/` folder**. This means `~/.vulcan/commands/` is effectively the baseline template for all entities Vulcan creates.
+
+**Rule:** Only put commands in `commands/` that every entity should have.
+
+| Belongs in `commands/` | Does NOT belong in `commands/` |
+|------------------------|-------------------------------|
+| `commit/self` — every entity commits itself | Vulcan's build/gestate workflows |
+| `playwright-cli` — universal web capability | Anything Vulcan-specific |
+| Other universal tools (TBD) | One-off operational scripts |
+
+Vulcan's own duties (gestate-entity, build-feature) live in `.claude/skills/` — not commands. Skills are not inherited.
+
+When adding a new command, ask: *should every entity that inherits from Vulcan have this?* If no, it's a skill or a script, not a command.
+
+---
+
 ## Operational Notes
 
 - Always commit and push immediately after completing work
