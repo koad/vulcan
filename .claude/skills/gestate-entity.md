@@ -15,12 +15,51 @@ Vulcan authors these commits — Vulcan did the work. The new entity will author
    ```bash
    koad-io gestate <entityname>
    ```
+
 2. Set AI session defaults in `.env` — entities are AI-operated, not human terminals:
    ```bash
    # Add to ~/.<entityname>/.env under "# AI Session Settings"
    KOAD_IO_QUIET=1
    ```
-3. Initialize git and push to GitHub:
+
+3. **Verify `.gitignore` is in place before touching git.** Check `~/.<entityname>/.gitignore` exists and protects private keys. If missing or incomplete, write it now — before `git init`. Non-negotiable.
+
+   Minimum required entries:
+   ```gitignore
+   # Private keys — never commit
+   id/
+   ssl/
+   keybase/
+   *.key
+   *.keys
+   *.gpg
+   *.pgp
+   *.sec
+   *.private
+
+   # Secrets
+   .env
+   .env.*
+   !.env.example
+   credentials
+   *.credentials
+
+   # Runtime
+   node_modules/
+   proc/
+   var/
+
+   # OS / editor
+   .DS_Store
+   .vscode/
+   *.swp
+   *~
+   logs/
+   *.log
+   archive/
+   ```
+
+4. Initialize git and push to GitHub:
    ```bash
    cd ~/.<entityname>
    git init
