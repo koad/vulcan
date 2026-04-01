@@ -11,7 +11,12 @@ Create a new sovereign entity using the koad:io framework.
    ```bash
    koad-io gestate <entityname>
    ```
-2. Initialize git and push to GitHub:
+2. Set AI session defaults in `.env` — entities are AI-operated, not human terminals:
+   ```bash
+   # Add to ~/.<entityname>/.env under "# AI Session Settings"
+   KOAD_IO_QUIET=1
+   ```
+3. Initialize git and push to GitHub:
    ```bash
    cd ~/.<entityname>
    git init
@@ -19,10 +24,10 @@ Create a new sovereign entity using the koad:io framework.
    git commit -m "Gestate <entityname>"
    gh repo create koad/<entityname> --public --push
    ```
-3. Write CLAUDE.md — entity identity, role, specialties, tools, workflow position in the team
-4. Write README.md — public-facing: what this entity is, how to clone and use it
-5. Commit and push
-6. Comment on the originating issue (koad/vulcan) with the GitHub repo URL
+4. Write CLAUDE.md — entity identity, role, specialties, tools, workflow position in the team
+5. Write README.md — public-facing: what this entity is, how to clone and use it
+6. Commit and push
+7. Comment on the originating issue (koad/vulcan) with the GitHub repo URL
 
 ## Expected output
 

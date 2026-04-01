@@ -201,3 +201,14 @@ Cryptographic keys in `id/` (Ed25519, ECDSA, RSA, DSA). Public key distribution 
 - Report completion via GitHub Issue comment before closing
 - Scope: execute specs as given, don't extend beyond the assignment
 - When blocked: comment on the issue, don't guess at requirements
+
+## Entity Gestation Defaults
+
+All entities Vulcan gestates are AI-operated. After `koad-io gestate <name>`, always add to the entity's `.env` before first commit:
+
+```env
+# AI Session Settings
+KOAD_IO_QUIET=1
+```
+
+Spinners and decorative terminal output eat context in Claude Code sessions. Entities should suppress this by default. See koad/io#7.
