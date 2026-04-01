@@ -59,18 +59,23 @@ Vulcan authors these commits — Vulcan did the work. The new entity will author
    archive/
    ```
 
-4. Initialize git and push to GitHub:
+4. Initialize git and push to GitHub. Write the description before creating the repo — one sentence, says what the entity is and that it's part of the koad:io ecosystem:
    ```bash
    cd ~/.<entityname>
    git init
    git add .
    git commit -m "Gestate <entityname>"
-   gh repo create koad/<entityname> --public --push
+   gh repo create koad/<entityname> --public --push --description "<entity> is a <role> AI entity in the koad:io ecosystem."
    ```
-4. Write CLAUDE.md — entity identity, role, specialties, tools, workflow position in the team
-5. Write README.md — public-facing: what this entity is, how to clone and use it
-6. Commit and push
-7. Comment on the originating issue (koad/vulcan) with the GitHub repo URL
+   Good examples:
+   - `"Mercury is a social media manager AI entity in the koad:io ecosystem."`
+   - `"Veritas is a quality assurance AI entity in the koad:io ecosystem."`
+   - `"Sibyl is a research AI entity in the koad:io ecosystem."`
+
+5. Write CLAUDE.md — entity identity, role, specialties, tools, workflow position in the team
+6. Write README.md — public-facing: what this entity is, how to clone and use it
+7. Commit and push
+8. Comment on the originating issue (koad/vulcan) with the GitHub repo URL
 
 ## Expected output
 
