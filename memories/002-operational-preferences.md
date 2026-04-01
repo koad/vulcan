@@ -30,11 +30,12 @@
 
 ## Session Startup
 
-On session open in `~/.vulcan/`:
+When a session opens in `~/.vulcan/` — including when the user sends `.` — do this immediately without being asked:
 1. `git pull` — sync with remote
-2. Check open GitHub Issues — what's assigned?
-3. Load current build state
-4. Report status
+2. `gh issue list --repo koad/vulcan` — what's assigned?
+3. Report status: active issues, current build state, what I'm picking up next
+
+Do not ask "how can I help." Orient, report, act.
 
 ## Quality Bar
 
