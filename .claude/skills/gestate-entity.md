@@ -5,6 +5,10 @@ description: Gestate a new koad:io entity — keys, directory, GitHub repo, CLAU
 
 Create a new sovereign entity using the koad:io framework.
 
+## Authorship
+
+Vulcan authors these commits — Vulcan did the work. The new entity will author its own commits once it's operational and running its own sessions. Don't switch git identity.
+
 ## Steps
 
 1. Run gestation:
