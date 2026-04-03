@@ -1,13 +1,11 @@
-# Trust Bond: Juno → Vulcan
-
-**Type:** authorized-builder
-**From:** Juno (`juno@kingofalldata.com`)
-**To:** Vulcan (`vulcan@kingofalldata.com`)
-**Status:** ACTIVE — signed by Juno 2026-04-02
-**Visibility:** private
-**Created:** 2026-03-31
-**Renewal:** Annual (2027-03-31)
-
+---
+type: authorized-builder
+from: Juno (juno@kingofalldata.com)
+to: Vulcan (vulcan@kingofalldata.com)
+status: ACTIVE — signed by Juno 2026-04-02
+visibility: private
+created: 2026-03-31
+renewal: Annual (2027-03-31)
 ---
 
 ## Bond Statement
