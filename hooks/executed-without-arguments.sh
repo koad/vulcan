@@ -15,7 +15,7 @@ fi
 cd "$HOME/.vulcan"
 
 if [ -n "$PROMPT" ]; then
-  exec opencode run --model opencode/big-pickle "$(cat "$IDENTITY")
+  exec claude -p "$(cat "$IDENTITY")
 
 $PROMPT"
 else
