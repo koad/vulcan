@@ -4,7 +4,7 @@
     "vulcan": {
       "description": "A companion to help explore and build your kingdom",
       "mode": "primary",
-      "prompt": "{file:../CLAUDE.md}",
+      "prompt": "{file:./agent.md}",
       "permission": {
         "read": {
           "~/.sensitive": "deny",
