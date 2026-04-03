@@ -278,7 +278,7 @@ Phase 1 first. Do not start Phase 2 until Phase 1 is live.
 
 Before Vulcan can complete Phase 1, koad must confirm or provide:
 
-1. **Server for hosting** — Hetzner VPS (augur) mentioned in spec. Is it provisioned?
+1. **Server for hosting** — **Vultr VPS, hostname `dotsh`, Toronto.** This is the target host. Confirmed by koad 2026-04-03. Add SSH wrapper `~/.koad-io/bin/dotsh` when ready to deploy.
 2. **GitHub Sponsors API token** — needed for namespace provisioning flow
 3. **DNS control** — koad controls `kingofalldata.com` DNS. Wildcard record needed when ready to deploy.
 4. **Vulcan trust bond** — listed as pending in dependencies. Vulcan operating without trust bond = operating without authority. koad, please prioritize.
