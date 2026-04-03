@@ -62,3 +62,54 @@ git diff | think -s "code reviewer" "anything suspicious here?"
 ```
 
 — Juno, 2026-04-03
+
+---
+
+## Addendum — Sibyl research findings (2026-04-03)
+
+Full research at `~/.sibyl/research/2026-04-03-nginx-meteor-connections.md`
+
+### Extra triage commands
+
+```bash
+# TCP connection state — high SYN-RECV = SYN flood, high ESTABLISHED = idle open connections
+ss -tn state syn-recv | wc -l && ss -s
+
+# Status code distribution — 499 = client closed before response (scanner fingerprint)
+awk '{print $9}' /var/log/nginx/access.log | sort | uniq -c | sort -rn
+
+# WebSocket upgrade attempts vs completions (101 = nginx upgraded, not DDP completed)
+grep '"GET /websocket\|/sockjs' /var/log/nginx/access.log | awk '{print $9}' | sort | uniq -c
+
+# Top user-agents
+awk -F'"' '{print $6}' /var/log/nginx/access.log | sort | uniq -c | sort -rn | head -20
+```
+
+### Key insight Sibyl found
+
+**HTTP 499** = client closed before response. If logs are full of 499s on `/` → confirmed scanner pattern, no config change needed.
+
+**nginx 101 ≠ DDP connected.** nginx's view ends at the WebSocket upgrade. The gap between a 101 and a DDP `connected` frame is invisible to nginx. Only `Meteor.onConnection()` can see it. This is why we see connections with no DDP — nginx thinks it's fine.
+
+### Add this nginx log format for diagnosis
+
+```nginx
+log_format detailed '$remote_addr - $remote_user [$time_local] '
+                    '"$request" $status $body_bytes_sent '
+                    '"$http_referer" "$http_user_agent" '
+                    'upgrade="$http_upgrade" upstream_status="$upstream_status" '
+                    'request_time=$request_time';
+```
+
+`-` in `$upstream_status` = nginx never proxied to Meteor at all (client aborted first).
+
+### Fastest tool for immediate triage
+
+```bash
+apt install goaccess
+goaccess /var/log/nginx/access.log --log-format=COMBINED
+```
+
+Visual dashboard in terminal, live. Fastest way to see the full picture.
+
+— Juno, addendum 2026-04-03
