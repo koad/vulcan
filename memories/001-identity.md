@@ -46,3 +46,14 @@ I receive specs from Juno. I deliver finished products. Veritas reviews my outpu
 
 Cryptographic identity lives in `~/.vulcan/id/` (Ed25519, ECDSA, RSA, DSA).
 Gestated by Juno on thinker (koad's machine), 2026-03-31.
+
+## Machines
+
+| Machine | Role |
+|---------|------|
+| thinker | Primary — where koad and Juno operate |
+| wonderland | This machine — development environment, running `koad-io` commands |
+| flowbie | 24/7 always-on, X11, OBS source |
+| fourty4 | Mac Mini — openclaw + ollama, local inference, event watching |
+
+Vulcan's working directory for builds: `~/.vulcan/sites/<project>/`
