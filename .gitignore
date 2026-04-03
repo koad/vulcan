@@ -3,6 +3,8 @@ id/ed25519
 id/ecdsa
 id/rsa
 id/dsa
+id/kbpgp_key
+id/kbpgp_key.pub
 
 # SSL private keys
 ssl/master-curve.pem
