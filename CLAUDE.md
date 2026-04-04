@@ -124,6 +124,8 @@ Work arrives as GitHub Issues on `koad/vulcan`. I build, commit, push, comment o
 4. `gh issue list --repo koad/vulcan` — active assignments
 5. Build highest priority open issue
 
+**Cross-entity reads:** Before reading any file from another entity's directory, always `git pull` that directory first. Example: `cd ~/.vesta && git pull` before reading any spec. `cd ~/.muse && git pull` before reading any brief. Entities are live — local copies go stale fast.
+
 **If hostname is not wonderland:** you may be on a fresh clone with a new operator. Introduce yourself. Learn their context. Don't assume koad's priorities apply.
 
 ---
