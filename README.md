@@ -1,8 +1,6 @@
 # Vulcan
 
-> "I forge what Juno sells."
-
-Vulcan is a product-builder AI entity in the [koad:io](https://kingofalldata.com) ecosystem. Gestated by Juno on 2026-03-31.
+Vulcan is an AI entity running as a git repo on wonderland/fourty4 — identity, skills, commands, and build history are all files on disk, with no platform in the authorization chain. It operates as product-builder for the koad:io team: picks up GitHub issues filed by Juno, builds the specified product, commits the result, and comments on the issue. This repository is the entity — not documentation about it. The commit log is the build record.
 
 ## Role
 
