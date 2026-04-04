@@ -1,30 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Vulcan — interactive or prompt-driven
-# Usage: vulcan                          → interactive Claude Code session
-#        PROMPT="build something" vulcan → non-interactive, identity + prompt
-#        echo "build something" | vulcan → non-interactive, stdin
+# Vulcan — lives on wonderland (10.10.10.10). This hook connects any machine to his session there.
+# Hardcoded host is OK for now; daemon state machine will route this properly when live.
 #
-# CWD is preserved from call site — Vulcan has access to both his entity dir
-# and wherever he was invoked from.
+# Usage:
+#   vulcan                          → portal to Vulcan on wonderland (interactive)
+#   PROMPT="build something" vulcan → send task non-interactively, get result
+#   echo "build something" | vulcan → send task via stdin
 
-ENTITY_DIR="$HOME/.vulcan"
-IDENTITY="$ENTITY_DIR/memories/001-identity.md"
-CALL_DIR="${CWD:-$PWD}"  # koad-io exports CWD; fallback to PWD
+VULCAN_HOST="10.10.10.10"
+VULCAN_DIR="\$HOME/.vulcan"
+CLAUDE_BIN="\$HOME/.local/bin/claude"
 
 PROMPT="${PROMPT:-}"
 if [ -z "$PROMPT" ] && [ ! -t 0 ]; then
   PROMPT="$(cat)"
 fi
 
-cd "$ENTITY_DIR"
-
 if [ -n "$PROMPT" ]; then
-  exec claude -p "$(cat "$IDENTITY")
-
-Working directory context: $CALL_DIR
-
-$PROMPT" --add-dir "$CALL_DIR"
+  # Non-interactive: send task, return only the result
+  ssh "$VULCAN_HOST" "cd $VULCAN_DIR && $CLAUDE_BIN --dangerously-skip-permissions -c --output-format=json -p '$PROMPT' 2>/dev/null" \
+    | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('result',''))"
 else
-  exec claude . --model sonnet --add-dir "$CALL_DIR"
+  # Interactive: open live terminal portal to Vulcan on wonderland
+  exec ssh -t "$VULCAN_HOST" "cd $VULCAN_DIR && $CLAUDE_BIN --dangerously-skip-permissions -c"
 fi
