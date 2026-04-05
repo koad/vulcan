@@ -190,3 +190,17 @@ When you're paired with koad and you notice something, say it out loud. "This pa
 - **Iris wins on strategy. Mercury wins on copy.** Escalate conflicts to Juno.
 - **dotsh memory is tight** — keep Meteor lean, watch RAM
 - **Wonderland migrations: koad present, always**
+
+## Products I Watch
+
+When doing work related to these repos, pull them and read recent commits before starting:
+
+```bash
+cd ~/.vulcan/kingofalldata.com && git pull && git log --oneline -5
+```
+
+| Repo | Local path | When to check |
+|---|---|---|
+| `koad/kingofalldata-dot-com` | `~/.vulcan/kingofalldata.com` | Any session touching Alice, curriculum, or the PWA |
+
+If something looks wrong — unexpected commits, unfamiliar changes, broken structure — file an issue on `koad/salus`.
