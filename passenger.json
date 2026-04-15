@@ -4,8 +4,27 @@
   "role": "product builder",
   "avatar": "avatar.png",
   "buttons": [
-    { "label": "Assignments", "action": "issues", "description": "Active build assignments" },
-    { "label": "Inbox", "action": "inbox", "description": "Check specs inbox" },
-    { "label": "Build", "action": "build", "description": "Start a build session" }
-  ]
+    {
+      "label": "Assignments",
+      "action": "issues",
+      "description": "Active build assignments"
+    },
+    {
+      "label": "Inbox",
+      "action": "inbox",
+      "description": "Check specs inbox"
+    },
+    {
+      "label": "Build",
+      "action": "build",
+      "description": "Start a build session"
+    }
+  ],
+  "outfit": {
+    "h": 31,
+    "s": 34,
+    "visual": {
+      "avatar": "avatar.png"
+    }
+  }
 }
