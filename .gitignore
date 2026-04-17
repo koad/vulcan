@@ -1,27 +1,20 @@
-# Private keys — never commit
-id/ed25519
-id/ecdsa
-id/rsa
-id/dsa
-id/kbpgp_key
-
-# SSL private keys
-ssl/master-curve.pem
-ssl/device-curve.pem
-ssl/relay-curve.pem
-ssl/session.pem
-
-# Environment — contains paths, may contain secrets
-# .env is committed but sanitized (no secrets)
-
-# Runtime
-proc/
-var/
-home/vulcan/.cache/
-
-# macOS
+# Runtime artifacts (regenerate on their own)
+.local/
+node_modules/
 .DS_Store
-
-# Editor
-.vscode/
+Thumbs.db
 *.swp
+*.swo
+*~
+.tmp/
+
+# Flight plans — ephemeral dispatch artifacts (durable record is commit trailer)
+flight-plans/
+
+# Claude Code harness artifacts (regenerated per session)
+.claude.json
+.claude/
+mcp-needs-auth-cache.json
+
+# Runtime state
+var/
