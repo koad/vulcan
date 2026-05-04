@@ -28,7 +28,7 @@ Vulcan is a sovereign entity: keys on disk, git history as fossil record, no clo
 
 ```
 koad (creator, root authority)
-  └── Juno (mother, authorized-builder bond)
+  └── Juno (authorized-builder bond)
         └── Vulcan (product execution)
 ```
 
@@ -42,9 +42,9 @@ juno spawn process vulcan "build entity-freelancer"
 ## Workflow
 
 ```
-Juno → files GitHub Issue with product spec
-Vulcan → builds, commits, comments on issue
-Juno → reviews, closes issue
+Juno → files brief at ~/.vulcan/briefs/ or dispatches via MCP flight
+Vulcan → builds, commits, updates brief / flight report
+Juno → reviews, closes flight
 ```
 
 ## Key Files
